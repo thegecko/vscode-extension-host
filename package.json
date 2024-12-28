@@ -1,0 +1,38 @@
+{
+  "name": "extension-host",
+  "displayName": "Extension Host",
+  "description": "Extension used to determine where an extension runs",
+  "version": "1.0.0",
+  "publisher": "thegecko",
+  "author": "Rob Moran <github@thegecko.org>",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "browser": "dist/browser.js",
+  "repository": "https://github.com/thegecko/vscode-extension-host",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "scripts": {
+    "prepare": "yarn build",
+    "build": "node build.mjs",
+    "watch": "node build.mjs watch",
+    "clean": "git clean -f -x ./node_modules ./dist",
+    "package": "vsce package --yarn",
+    "serve": "serve --cors -p 9876"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "@types/vscode": "^1.63.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.24.0",
+    "serve": "^14.2.4",
+    "typescript": "^5.6.3"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ]
+}
